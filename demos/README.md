@@ -77,5 +77,6 @@ Any unhealthy router is tracked down and the program suggests an alternate path 
 - A python script generates network stats in the form of latency , bandwidth utilization , status and packet drops for a set of 100 routers.There are 2 events generated for each router per second for the two interfaces of a router. The data is directly ingested into Iguazio's TSDB data base via REST end points of a [Nuclio](https://nuclio.io/) serverless function.
 - The data is also fed to another Nuclio function which assigns a health score to each link in the network.This data is written (ingested) into an Iguazio no-sql table using [NoSQL Web API](https://www.iguazio.com/docs/reference/latest-release/api-reference/web-apis/nosql-web-api/). This table maintains only the latest state of the netowok in real-time.
 - A spark batch job is run every 2 minutes on the real-time kv table to generate alternate routes for any unhealthy link detected in the network. It utilizes [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to create a digital twin of the network in memory.
-- UI <TBD>
+- Dashboard <TBD>
 
+<br>![](assets/images/network-auto-heal.png)<br>
