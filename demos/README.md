@@ -9,6 +9,7 @@
 - [Image Recognition](#image-classification-demo)
 - [Natural Language Processing (NLP)](#nlp-demo)
 - [Stream Enrichment](#stream-enrich-demo)
+- [Network Auto Heal](#network-auto-heal)
 
 <a id="overview"></a>
 ## Overview
@@ -65,3 +66,16 @@ The [**stream-enrich**](stream-enrich/stream-enrich.ipynb) demo demonstrates a t
 - The input stream data is enriched with additional data, such as the car's color and vendor, and the enriched data is saved to a NoSQL table by using the platform's [NoSQL Web API](https://www.iguazio.com/docs/reference/latest-release/api-reference/web-apis/nosql-web-api/).
 - The Nuclio function writes the enriched data to an output platform data stream by using the platform's Streaming Web API.
 - The enriched data is read (consumed) from the output stream by using the platform's Streaming Web API.
+
+
+<a id="network-auto-heal"></a>
+### Netowk Auto Heal
+
+The [**netowrk-auto-heal**](stream-enrich/stream-enrich.ipynb) demo demonstrates a typical telco network data pipeline.Varioud routers and network switches are constantly monitored for metrices latency , utilized bandwidth , packet drops and status changes. A scoring mechanism based on the above metrices marks if a router is healthy or not.
+Any unhealthy router is tracked down and the program suggests an alternate path to re-route the traffic to avoid network downtime/congestion because of the faulty router.
+
+- A python script generates network stats in the form of latency , bandwidth utilization , status and packet drops for a set of 100 routers.There are 2 events generated for each router per second for the two interfaces of a router. The data is directly ingested into Iguazio's TSDB data base via REST end points of a [Nuclio](https://nuclio.io/) serverless function.
+- The data is also fed to another Nuclio function which assigns a health score to each link in the network.This data is written (ingested) into an Iguazio no-sql table using [NoSQL Web API](https://www.iguazio.com/docs/reference/latest-release/api-reference/web-apis/nosql-web-api/). This table maintains only the latest state of the netowok in real-time.
+- A spark batch job is run every 2 minutes on the real-time kv table to generate alternate routes for any unhealthy link detected in the network. It utilizes [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to create a digital twin of the network in memory.
+- UI <TBD>
+
