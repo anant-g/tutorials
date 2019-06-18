@@ -68,7 +68,7 @@ The [**stream-enrich**](stream-enrich/stream-enrich.ipynb) demo demonstrates a t
 - The enriched data is read (consumed) from the output stream by using the platform's Streaming Web API.
 
 
-<a id="netowrk-auto-heal"></a>
+<a id="network-auto-heal"></a>
 ### Netowk Auto Heal
 
 The [**netowrk-auto-heal**](stream-enrich/stream-enrich.ipynb) demo demonstrates a typical telco network data pipeline.Varioud routers and network switches are constantly monitored for metrices latency , utilized bandwidth , packet drops and status changes. A scoring mechanism based on the above metrices marks if a router is healthy or not.
