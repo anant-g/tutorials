@@ -79,5 +79,5 @@ Any unhealthy router is tracked down and the program suggests an alternate path 
 - A spark batch job is run every 2 minutes on the real-time kv table to generate alternate routes for any unhealthy link detected in the network. It utilizes [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to create a digital twin of the network in memory.
 - Dashboard <TBD>
 
-<br><img src="assets/images/network-auto-heal.png" alt="Network auto heal" width="650"/><br>
+<br><img src="../assets/images/network-auto-heal.png" alt="Network auto heal" width="650"/><br>
 
