@@ -9,6 +9,7 @@
 - [Image Recognition](#image-classification-demo)
 - [Natural Language Processing (NLP)](#nlp-demo)
 - [Stream Enrichment](#stream-enrich-demo)
+- [Network Auto Healing](#auto-heal-demo)
 
 <a id="overview"></a>
 ## Overview
